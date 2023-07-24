@@ -34,7 +34,7 @@ if option == '검색':
     #     if submit and user_input:
     #         response = bardapi.Bard(token).get_answer(user_input)
            
-    st.write(response['contents'])
+        st.write(response['contents'])
 
         answers=[]
 
