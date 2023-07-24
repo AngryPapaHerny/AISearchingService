@@ -1,12 +1,18 @@
 import streamlit as st
 import bardapi 
+# from bardapi import Bard
 
-token = st.secrets["bard_api"]
+# token = st.secrets["bard_api"]
 
 theme = st.sidebar.radio('테마',['default','dark'])
 option = st.sidebar.selectbox(
     'Menu',
      ('검색', '멀티미디어', '기타'))
+token = st.sidebar.text_input(
+    label='BardToken', 
+    placeholder='Token 값을 입력하세요.'
+)
+
 
 if option == '검색':
     st.title("인공지능 검색 서비스")
@@ -22,8 +28,10 @@ if option == '검색':
     
     with st.spinner("waiting..."):
         if submit and user_input:
-            response = bardapi.core.Bard(token).get_answer(user_input)
-            st.write(response)
+            response = bardapi.Bard(token).get_answer(user_input)
+            # bard = bardapi.Bard(token_from_browser=True)
+            # response = bard.get_answer(user_input)
+        # st.write(response['choices'])
 
     answers=[]
 
@@ -40,8 +48,8 @@ if option == '검색':
             st.write(answers[1])
         with tab3:
             st.write(answers[2])
-    except Exception as e:
-        st.write(f"Error : {e}")
+    except:
+        st.write("무엇을 도와드릴까요?")
 
 elif option == '멀티미디어':
     st.title("페이지 2")
