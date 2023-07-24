@@ -23,7 +23,7 @@ if option == '검색':
     with st.spinner("waiting..."):
         if submit and user_input:
             response = bardapi.core.Bard(token).get_answer(user_input)
-            # st.write(response['choices'])
+            st.write(response)
 
     answers=[]
 
