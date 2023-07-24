@@ -3,7 +3,6 @@ import bardapi
 
 token = st.secrets["bard_api"]
 
-theme = st.sidebar.radio('테마',['default','dark'])
 option = st.sidebar.selectbox(
     'Menu',
      ('검색', '멀티미디어', '기타'))
