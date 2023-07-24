@@ -34,11 +34,11 @@ if option == '검색':
     #     if submit and user_input:
     #         response = bardapi.Bard(token).get_answer(user_input)
            
-    st.write(response)
+    # st.write(response)
 
-    answers=[]
+        answers=[]
 
-    try:
+    # try:
         # for i,choice in enumerate(response['choices']):
         for choice in response['choices']:
             answers.append(choice['content'][0])
@@ -51,8 +51,8 @@ if option == '검색':
             st.write(answers[1])
         with tab3:
             st.write(answers[2])
-    except:
-        st.write("무엇을 도와드릴까요?")
+    # except:
+    #     st.write("무엇을 도와드릴까요?")
 
 elif option == '멀티미디어':
     st.title("페이지 2")
