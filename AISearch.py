@@ -34,12 +34,12 @@ if option == '검색':
     #     if submit and user_input:
     #         response = bardapi.Bard(token).get_answer(user_input)
            
-    # st.write(response)
+    st.write(response['contents'])
 
         answers=[]
 
     # try:
-        response = response['contents']):
+        # response = response['contents'])
         for choice in response['choices']:
             answers.append(choice['content'][0])
 
