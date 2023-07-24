@@ -23,7 +23,7 @@ if option == '검색':
     with st.spinner("waiting..."):
         if submit and user_input:
             response = bardapi.core.Bard(token).get_answer(user_input)
-        # st.write(response['choices'])
+            st.write(response['choices'])
 
     answers=[]
 
@@ -40,8 +40,8 @@ if option == '검색':
             st.write(answers[1])
         with tab3:
             st.write(answers[2])
-    except:
-        st.write("무엇을 도와드릴까요?")
+    except Exception as e:
+        st.write(f"Error : {e}")
 
 elif option == '멀티미디어':
     st.title("페이지 2")
