@@ -44,7 +44,9 @@ with st.spinner("waiting..."):
         if submit and user_input:
                 response = Bard(token).get_answer(user_input)
 try:
-        answers = [choice['content'][0] for choice in response['choices']]
+        for choice in response['choices']:
+            answers.append(choice['content'][0])
+                
         tab1, tab2, tab3 = st.tabs(['answer1', 'answer2','answer3'])
 
         with tab1:
