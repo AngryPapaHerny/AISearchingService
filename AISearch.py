@@ -39,7 +39,7 @@ if option == '검색':
         answers=[]
 
     # try:
-        # for i,choice in enumerate(response['choices']):
+        response = response['contents']):
         for choice in response['choices']:
             answers.append(choice['content'][0])
 
