@@ -3,18 +3,23 @@ import bardapi
 
 token = st.secrets["bard_api"]
 
+theme = st.sidebar.radio('테마',['default','dark'])
 option = st.sidebar.selectbox(
     'Menu',
      ('검색', '멀티미디어', '기타'))
 
 if option == '검색':
     st.title("인공지능 검색 서비스")
-
+    
+    response=''
+    
+    # tab1, tab2, tab3 = st.tabs(['answer1', 'answer2','answer3'])
+    
     with st.form("form"):
         user_input = st.text_input("Prompt")
         submit = st.form_submit_button("Submit")
 
-    response=''
+    
     with st.spinner("waiting..."):
         if submit and user_input:
             response = bardapi.core.Bard(token).get_answer(user_input)
