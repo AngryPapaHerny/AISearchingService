@@ -25,13 +25,16 @@ if option == '검색':
         user_input = st.text_input("Prompt")
         submit = st.form_submit_button("Submit")
 
-    
-    with st.spinner("waiting..."):
-        if submit and user_input:
-            response = bardapi.Bard(token).get_answer(user_input)
-            # bard = bardapi.Bard(token_from_browser=True)
-            # response = bard.get_answer(user_input)
-    st.write(response['choices'])
+    if submit and user_input:
+        with st.spinner("waiting..."):
+            bard = bardapi.Bard(token)
+            response = bard.get_answer(user_input)
+      
+    # with st.spinner("waiting..."):
+    #     if submit and user_input:
+    #         response = bardapi.Bard(token).get_answer(user_input)
+           
+    st.write(response)
 
     answers=[]
 
